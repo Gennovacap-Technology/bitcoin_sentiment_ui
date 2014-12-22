@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: bitcoin_sentiment
+  username: postgres
+  password: postgres
+
+test:
+  <<: *default
+  database: bitcoin_sentiment_ui_test
+  username: postgres
+  password: postgres
+
+production:
+  <<: *default
+  database: bitcoin_sentiment_ui_production
+  username: bitcoin_sentiment_ui
+  password: <%= ENV['BITCOIN_SENTIMENT_UI_DATABASE_PASSWORD'] %>

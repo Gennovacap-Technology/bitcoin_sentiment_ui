@@ -1,0 +1,22 @@
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Keyword</th>
+      <th>Sentiment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @results.each do |keyword, values| %>
+      <% values.each do |value| %>
+        <tr class="<%= class_for_sentiment(value) %>">
+          <td><%= keyword %></td>
+          <td><%= text_for_sentiment(value) %> (<%= value %>)</td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<pre>
+  <%= @results.to_json %>
+</pre>
